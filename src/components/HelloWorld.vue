@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 
 defineProps<{ msg: string }>()
 
-const count = ref(0)
+import Swal from "sweetalert2";
+
+const showAlert = () => {
+  // Usando SweetAlert2
+  Swal.fire("Hello Vue world!!!");
+};
+
 </script>
 
 <template>
@@ -12,4 +17,6 @@ const count = ref(0)
   <h1 class="text-3xl font-bold underline">
     Hello world!
   </h1>
+  
+  <button @click="showAlert">Hello world</button>
 </template>
