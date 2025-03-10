@@ -1,22 +1,23 @@
 <script setup lang="ts">
+import Swal from "sweetalert2";
 
 defineProps<{ msg: string }>()
 
-import Swal from "sweetalert2";
-
-const showAlert = () => {
+const showAlert = (msg: string): void => {
   // Usando SweetAlert2
-  Swal.fire("Hello Vue world!!!");
+  Swal.fire({
+    title: "Good job!",
+    text: msg,
+    icon: "success"
+  });
 };
 
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold underline">{{ msg }}</h1>
   
-  <button @click="showAlert">Hello world</button>
+    <button type="button" class="bg-blue-700 text-white rounded-lg px-5" @click="showAlert(msg)">Hello world</button>
+  </div>
 </template>
